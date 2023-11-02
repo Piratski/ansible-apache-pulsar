@@ -1,8 +1,5 @@
 ---
 
-#- name: Installing common apps | start
-#  include_tasks: installApps.yml
-
 - name: Create user and group | start
   include_tasks: createUser.yml
 
