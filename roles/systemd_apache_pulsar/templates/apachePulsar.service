@@ -1,0 +1,15 @@
+[Unit]
+Description=Apache Pulsar standalone
+After=network.target
+
+[Service]
+ExecStart={{ apachePulsarInstallDir }}/apache-pulsar/bin/pulsar standalone
+WorkingDirectory={{ apachePulsarInstallDir }}/apache-pulsar
+RestartSec=1s
+Restart=on-failure
+Type=simple
+User={{ apachePulsarUser }}
+Group={{ apachePulsarGroup }}
+
+[Install]
+WantedBy=multi-user.target

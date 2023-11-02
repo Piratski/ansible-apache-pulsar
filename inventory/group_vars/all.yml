@@ -1,0 +1,15 @@
+---
+
+javaVersion: 8
+
+apachePulsarGroup: apachePulsar
+apachePulsarUser: apachePulsar
+apachePulsarGroupId: 9000
+apachePulsarUserId: 9000
+
+apachePulsarVersion: 3.1.0
+JavaVersion: 21
+
+apachePulsarInstallDir: /elasticdata
+apachePulsarJournalDataDir: "{{ apachePulsarInstallDir }}/apachePulsar-data-journal"
+apachePulsarLedgerDataDir: "{{ apachePulsarInstallDir }}/apachePulsar-data-ledger"

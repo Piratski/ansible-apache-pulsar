@@ -1,0 +1,26 @@
+---
+
+- name: Copy rpm file to server
+  copy:
+     src: files/apache-pulsar-{{ apachePulsarVersion }}-bin.tar.gz
+     dest: /tmp/apache-pulsar-{{ apachePulsarVersion }}-bin.tar.gz
+
+
+- name: copy and unarchive apache-pulsar | {{ apachePulsarVersion }}
+  unarchive:
+    remote_src: yes
+    src: /tmp/apache-pulsar-{{ apachePulsarVersion }}-bin.tar.gz
+    dest: "{{ apachePulsarInstallDir }}"
+    owner: "{{ apachePulsarUser }}"
+    group: "{{ apachePulsarGroup }}"
+    validate_certs: false
+    keep_newer: yes
+    creates: {{ apachePulsarInstallDir }}/apache-pulsar-{{ apachePulsarVersion }}/bin
+
+- name: Ensuring permissions on unarchieved files
+  file:
+    path: "{{ apachePulsarInstallDir }}/apache-pulsar-{{ apachePulsarVersion }}"
+    owner: "{{ apachePulsarUser }}"
+    group: "{{ apachePulsarGroup }}"
+    recurse: true
+    mode: 0775

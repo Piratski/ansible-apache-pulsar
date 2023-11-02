@@ -1,0 +1,13 @@
+---
+
+- name: Creating Service File | apachePulsar
+  template:
+    src: apachePulsar.service
+    dest: /usr/lib/systemd/system/apachePulsar.service
+
+- name: apachePulsar Service | started
+  systemd:
+    name: apachePulsar.service
+    state: started
+    enabled: true
+    daemon_reload: true

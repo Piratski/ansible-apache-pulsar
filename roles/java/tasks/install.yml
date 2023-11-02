@@ -1,0 +1,12 @@
+---
+
+- name: Copy rpm file to server
+  copy:
+     src: files/jdk-{{ JavaVersion }}_linux-x64_bin.rpm
+     dest: /tmp/jdk-{{ JavaVersion }}_linux-x64_bin.rpm
+- name: Install Java.
+  shell: |
+    rpm -ivh /tmp/jdk-{{ JavaVersion }}_linux-x64_bin.rpm
+
+
+

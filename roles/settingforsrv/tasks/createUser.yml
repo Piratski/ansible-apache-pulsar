@@ -1,0 +1,14 @@
+---
+
+- name: creating apachePulsar group
+  group:
+    name: "{{ apachePulsarUser }}"
+    gid: 9000
+    state: present
+
+- name: creating apachePulsar user
+  user:
+    name: "{{ apachePulsarUser }}"
+    comment: apachePulsar Default User
+    uid: 9000
+    group: "{{ apachePulsarGroup }}"

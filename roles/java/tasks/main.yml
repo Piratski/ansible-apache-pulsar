@@ -1,0 +1,17 @@
+---
+
+#- name: java install
+#  raw: which java
+#  register: javaRequired
+#  ignore_errors: true
+#  changed_when: false
+
+- include_tasks: install.yml
+
+- name: Checking if Java_home setting is needed
+  command:  /bin/bash -l -c "echo $JAVA_HOME"
+  register: checkJavaHome
+  changed_when: false
+
+- include_tasks: javaHome.yml
+  when: checkJavaHome.stdout == ''

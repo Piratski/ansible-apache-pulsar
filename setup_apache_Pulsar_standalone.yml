@@ -1,0 +1,9 @@
+---
+
+- hosts: hosts
+  gather_facts: true
+  roles:
+    - java
+    - settingforsrv
+    - install_apache_pulsar
+    - systemd_apache_pulsar
